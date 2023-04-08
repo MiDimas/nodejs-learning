@@ -1,0 +1,17 @@
+{
+  "name": "node-js",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "node ./lessons/process.js",
+    "file": "node ./lessons/fileSystem.js",
+    "practic": "node ./lessons/firstPractic.js"
+  },
+  "author": "midimas",
+  "license": "ISC",
+  "dependencies": {
+    "cross-env": "^7.0.3",
+    "dotenv": "^16.0.3"
+  }
+}
