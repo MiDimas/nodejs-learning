@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "node ./lessons/process.js",
+    "start": "nodemon node ./index.js",
+    "lessons": "node ./lessons/process.js",
     "file": "node ./lessons/fileSystem.js",
     "practic": "node ./lessons/firstPractic.js"
   },
@@ -12,6 +13,7 @@
   "license": "ISC",
   "dependencies": {
     "cross-env": "^7.0.3",
-    "dotenv": "^16.0.3"
+    "dotenv": "^16.0.3",
+    "nodemon": "^2.0.22"
   }
 }
