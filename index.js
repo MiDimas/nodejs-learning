@@ -21,8 +21,10 @@ const port = process.env.PORT || 5000;
 // server.listen(port, () => console.log(`Сервер запущен на порту ${port}`));
 
 const Application = require('./frame/Application');
-const router = require('./src/user-router')
+const router = require('./src/user-router');
+const jsonParser = require('./frame/parseJson');
 
 const app = new Application();
+app.use(jsonParser);
 app.addRouter(router);
 app.listen(port, () => console.log(`Сервер запущен на порту ${port}`));
