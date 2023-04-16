@@ -1,7 +1,7 @@
 const http = require('http');
 const EventEmitter = require('events');
 
-// enpoint = {
+// enpoints = {
 //   '/users': {
 //      'GET': handler
 //    }
@@ -36,10 +36,19 @@ module.exports = class Application {
     }
     _createServer () {
         return http.createServer((req, res) => {
-            const emitted = this.emitter.emit(this._getRouteMask(req.url, req.method), req, res);
-            if(!emitted) {
-                res.end(this._getRouteMask(req.url, req.method))
-            }
+            let body = '';
+            req.on("data", (chunk) => {
+                body += chunk;
+            });
+            req.on('end', () => {
+                if (body){
+                    req.body = JSON.parse(body);
+                }
+                const emitted = this.emitter.emit(this._getRouteMask(req.url, req.method), req, res);
+                if(!emitted) {
+                    res.end(this._getRouteMask(req.url, req.method))
+                }
+            });
         })
     }
     _getRouteMask (path, method){

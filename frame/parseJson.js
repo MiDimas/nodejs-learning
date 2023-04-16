@@ -3,6 +3,6 @@ module.exports = (res, req) => {
         res.writeHead(200, {
             'Content-type': 'application/json'
         });
-        res.end(data);
+        res.end(JSON.stringify(data, null, 4));
     }
 }
