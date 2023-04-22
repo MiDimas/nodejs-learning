@@ -2,8 +2,8 @@
 const http = require('http');
 
 const data = JSON.stringify({
-    id: 2,
-    name: 'Midimass'
+    name: 'Midi',
+    password: 'fdf3gdf',
 })
 const options = {
     hostname: 'localhost',
